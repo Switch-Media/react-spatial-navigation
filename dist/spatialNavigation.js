@@ -357,6 +357,7 @@ var SpatialNavigation = function () {
     this.pause = this.pause.bind(this);
     this.resume = this.resume.bind(this);
     this.setFocus = this.setFocus.bind(this);
+    this.getFocus = this.getFocus.bind(this);
     this.navigateByDirection = this.navigateByDirection.bind(this);
     this.init = this.init.bind(this);
     this.setKeyMap = this.setKeyMap.bind(this);
@@ -976,6 +977,11 @@ var SpatialNavigation = function () {
     key: 'resume',
     value: function resume() {
       this.paused = false;
+    }
+  }, {
+    key: 'getFocus',
+    value: function getFocus() {
+      return this.focusKey;
     }
   }, {
     key: 'setFocus',

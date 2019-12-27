@@ -301,6 +301,7 @@ class SpatialNavigation {
     this.pause = this.pause.bind(this);
     this.resume = this.resume.bind(this);
     this.setFocus = this.setFocus.bind(this);
+    this.getFocus = this.getFocus.bind(this);
     this.navigateByDirection = this.navigateByDirection.bind(this);
     this.init = this.init.bind(this);
     this.setKeyMap = this.setKeyMap.bind(this);
@@ -888,6 +889,10 @@ class SpatialNavigation {
 
   resume() {
     this.paused = false;
+  }
+
+  getFocus() {
+    return this.focusKey;
   }
 
   setFocus(focusKey, overwriteFocusKey) {

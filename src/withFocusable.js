@@ -38,6 +38,7 @@ const withFocusable = ({
        * It is blocked in the Native mode because the native engine decides what to focus by itself.
        */
       setFocus: SpatialNavigation.isNativeMode() ? noop : SpatialNavigation.setFocus.bind(null, realFocusKey),
+      getFocus: SpatialNavigation.isNativeMode() ? noop : SpatialNavigation.getFocus.bind(null),
 
       navigateByDirection: SpatialNavigation.navigateByDirection,
 

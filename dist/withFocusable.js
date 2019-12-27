@@ -95,6 +95,7 @@ var withFocusable = function withFocusable() {
        * It is blocked in the Native mode because the native engine decides what to focus by itself.
        */
       setFocus: _spatialNavigation2.default.isNativeMode() ? _noop2.default : _spatialNavigation2.default.setFocus.bind(null, realFocusKey),
+      getFocus: _spatialNavigation2.default.isNativeMode() ? _noop2.default : _spatialNavigation2.default.getFocus.bind(null),
 
       navigateByDirection: _spatialNavigation2.default.navigateByDirection,
 
