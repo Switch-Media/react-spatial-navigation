@@ -365,6 +365,7 @@ var SpatialNavigation = function () {
     this.debug = false;
     this.visualDebugger = null;
 
+    this.inputInterval = 300;
     this.logIndex = 0;
   }
 
@@ -438,11 +439,16 @@ var SpatialNavigation = function () {
       var _this3 = this;
 
       if (window) {
+        var _lastInput = 0;
         this.keyDownEventListener = function (event) {
           if (_this3.paused === true) {
             return;
           }
-
+          var now = Date.now();
+          if (now - _lastInput < _this3.inputInterval) {
+            return;
+          }
+          _lastInput = now;
           if (_this3.debug) {
             _this3.logIndex += 1;
           }

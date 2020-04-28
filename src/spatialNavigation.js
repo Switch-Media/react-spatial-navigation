@@ -309,6 +309,7 @@ class SpatialNavigation {
     this.debug = false;
     this.visualDebugger = null;
 
+    this.inputInterval = 300;
     this.logIndex = 0;
   }
 
@@ -372,11 +373,16 @@ class SpatialNavigation {
 
   bindEventHandlers() {
     if (window) {
+      let _lastInput = 0;
       this.keyDownEventListener = (event) => {
         if (this.paused === true) {
           return;
         }
-
+        var now = Date.now();
+        if (now - _lastInput < this.inputInterval) {
+          return;
+        }
+        _lastInput = now;
         if (this.debug) {
           this.logIndex += 1;
         }
